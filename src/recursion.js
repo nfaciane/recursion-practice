@@ -32,6 +32,7 @@ factorial(5);
 
                 output = 60
                 return 
+*/
 
 // 2. Compute the sum of an array of integers.
 // Example:  sum([1, 2, 3, 4, 5, 6]);  // 21
@@ -55,8 +56,24 @@ var sumBelow = function(n) {
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
-var range = function(x, y) {
+var range = function(x, y, output=[]) {
+  //BASECASE
+  //condition 
+  //is x<y or is x>y
+  if(){
+
+  }
+  //RECURSION
+  //condition
+  //(if/else) => if x<y; else is x>y
+  if(x < y){
+
+  }else{
+
+  }
 };
+
+
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
@@ -272,7 +289,7 @@ var mergeSort = function(array) {
 //-----------------------------------
 
 if ((typeof process !== 'undefined') &&
-  (typeof process.versions.node !== 'undefined')) {
+  (typeof process.versions.node !== 'undefined')) {}
 
   /**
    * Due to some node-related issues with spying on recursive functions,
