@@ -36,16 +36,64 @@ factorial(5);
 
 // 2. Compute the sum of an array of integers.
 // Example:  sum([1, 2, 3, 4, 5, 6]);  // 21
-var sum = function(array) {
+var sum = function(array, output=0) {
+  //Base Case - when to stop looping
+    //condition if array length is 0; stop loop; return output
+    if(array.length === 0){
+      //return value; //stop recursion
+      return output;
+    }
+  //RECURSION - call itself
+    //return function with inputs
+
+    //return sum function; array.slice() to shorten array each loop; add current element to running total
+    return sum(array.slice(1), output + array[0]);
 };
 
 // 3. Sum all numbers in an array containing nested arrays.
 // Example: arraySum([1,[2,3],[[4]],5]); // 15
-var arraySum = function(array) {
+var arraySum = function(array, output=0) {
+  //Base Case
+    //condition - when to stop
+    //if array length 0; stop looping; return output
+    if(array.length === 0){
+      return output;
+    }
+  //RECURSION
+    //condition
+      //if array[0] typeof is 'number' => return add to output
+      if(typeof array[0] === 'number'){
+        return arraySum(array.slice(1), output + array[0]);
+        //else => if array[0] Array.isArray true => RECURSION sum function
+      } else{
+        if(Array.isArray(array[0])){
+          return arraySum(array[0], output) + arraySum(array.slice(1), 0);
+        }
+
+      }
+      
+    //return function
 };
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+  
+  //Base Case
+    //condition if n is even => return true
+    if(n === 0){
+      return true;
+    }else { //else if n is odd => return false
+      if(n === 1){
+        return false;
+      }
+    }
+    //if n is negative => return make n positive
+    if(n < 0){
+      return isEven(-n);
+    }
+
+  //Recursion
+  return isEven(n - 2);
 };
 
 // 5. Sum all integers below a given integer.
@@ -57,10 +105,10 @@ var sumBelow = function(n) {
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y, output=[]) {
-  //BASECASE
+  //BASE CASE
   //condition 
   //is x<y or is x>y
-  if(){
+  if(x < y){
 
   }
   //RECURSION
