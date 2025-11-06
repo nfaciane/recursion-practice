@@ -120,18 +120,22 @@ var sumBelow = function(n, output=0) {
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y, output=[]) {
-  //BASE CASE
-  //condition 
-  //is x<y or is x>y
-  if(x < y){
-
+  //BASE CASE - when to stop looping
+  //condition if x equals y OR x equals y+1 OR x equals y-1 => return output
+  if(x === y || x === (y - 1) || x === (y + 1)){
+    return output;
   }
   //RECURSION
-  //condition
-  //(if/else) => if x<y; else is x>y
+  //condition - if x < y => push x+1 to output array => return 
   if(x < y){
+    output.push(x + 1);
+    return range(x + 1, y, output);
 
-  }else{
+  }else{ //(if/else) else => if x > y => push x-1 to output array => return
+    if(x > y){
+      output.push(x - 1);
+      return range(x - 1, y, output);
+    }
 
   }
 };
