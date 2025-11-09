@@ -252,6 +252,11 @@ var multiply = function(x, y) {
 // 13. Write a function that divides two numbers without using the / operator  or
 // JavaScript's Math object.
 var divide = function(x, y) {
+  if(x < y){
+    return 0;
+  }
+
+  return 1 + divide(x - y, y);
 };
 
 // 14. Find the greatest common divisor (gcd) of two positive numbers.  The GCD of two
@@ -269,11 +274,37 @@ var gcd = function(x, y) {
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+  //Base Case #1
+    //condition
+    if(str1.length === 0 && str2.length === 0){
+      return true;
+    }
+    //Base Case #2
+      //condition
+      if(str1.length === 0 || str2.length === 0){
+        return false;
+      }
+    //Base Case
+      //condition
+      if(str1[0] !== str2[0]){
+        return false; 
+      }
+  //RECURSION
+    //condition
+    return compareStr(str1.slice(1), str2.slice(1));
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
 var createArray = function(str){
+  //Base Case
+    //condition
+    if(str.length === 0){
+      return [];
+    }
+    //RECURSION
+      //condition
+      return [str[0]].concat(createArray(str.slice(1)));
 };
 
 // 17. Reverse the order of an array
