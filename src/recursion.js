@@ -508,6 +508,17 @@ var augmentElements = function(array, aug) {
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
 var minimizeZeroes = function(array) {
+  //Base Case
+    //condition
+    if(array.length <= 1){
+      return array;
+    }
+  //RECURSION
+    //condition
+    if(array[0] === 0 && array[1] === 0){
+      return minimizeZeroes(array.slice(1));
+    }
+    return [array[0]].concat(minimizeZeroes(array.slice(1)));
 };
 
 // 34. Alternate the numbers in an array between positive and negative regardless of
