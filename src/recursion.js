@@ -337,7 +337,19 @@ var buildList = function(value, length, output=[]){
 // 19. Count the occurence of a value inside a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
-var countOccurrence = function(array, value) {
+var countOccurrence = function(array, value, output=0) {
+  //Base Case
+    //condition
+    if(array.length === 0){
+      return output;
+    }
+  //RECURSION
+    //condition
+    if(array[0] === value){
+      output += 1;
+      
+    }
+    return countOccurrence(array.slice(1), value, output);
 };
 
 // 20. Write a recursive version of map.
