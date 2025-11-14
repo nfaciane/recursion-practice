@@ -545,6 +545,19 @@ var alternateSign = function(array) {
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
 var numToText = function(str) {
+  //Base Case
+    //condition
+    if(str.length === 0){
+      return str;
+    }
+    var words = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+    let index = str[0];
+  //RECURSION
+    //consition
+    if(str[0] >= '0' && str[0] <= '9'){
+      index = words[index];
+    }
+    return index + numToText(str.slice(1));
 };
 
 // *** EXTRA CREDIT ***
